@@ -42,8 +42,8 @@
           <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductTypeId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="MakePrice" Type="decimal" Precision="12" Scale="3" Nullable="false" />
-          <Property Name="SellPrice" Type="decimal" Precision="12" Scale="3" Nullable="false" />
+          <Property Name="MakePrice" Type="float" Nullable="false" />
+          <Property Name="SellPrice" Type="float" Nullable="false" />
           <Property Name="Photo" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Amount" Type="int" Nullable="false" />
         </EntityType>
@@ -200,8 +200,8 @@
           <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductTypeId" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MakePrice" Type="Decimal" Precision="12" Scale="3" Nullable="false" />
-          <Property Name="SellPrice" Type="Decimal" Precision="12" Scale="3" Nullable="false" />
+          <Property Name="MakePrice" Type="Double" Nullable="false" />
+          <Property Name="SellPrice" Type="Double" Nullable="false" />
           <Property Name="Photo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Amount" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Product" FromRole="Product" ToRole="Order" />

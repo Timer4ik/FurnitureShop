@@ -38,7 +38,7 @@ namespace FurnitureApplication.Pages
 
             ProductTypes = FurnitureEntities.GetContext().ProductTypes.ToList();
             ProductTypeCmb.ItemsSource = ProductTypes;
-            ProductTypeCmb.SelectedIndex = 0;
+            ProductTypeCmb.SelectedItem = Product.ProductType;
             ProductTypeCmb.DisplayMemberPath = "Name";
         }
 
@@ -52,24 +52,19 @@ namespace FurnitureApplication.Pages
             }
 
             int i = 0;
-            while (File.Exists(photoName))
+            while (File.Exists(_photoDirectory+i + photoName))
             {
-                if (!File.Exists(_photoDirectory + i + photoName))
-                {
-                    photoName = photoName + i;
-                    break;
-                }
                 i++;
             }
 
-            return photoName;
+            return i+photoName;
 
         }
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
-            if (ProductTypeCmb.SelectedIndex<=0)
+            if (ProductTypeCmb.SelectedIndex<0)
             {
                 errors.AppendLine("Обязательно должен быть выбран тип товара");
             }
@@ -77,11 +72,20 @@ namespace FurnitureApplication.Pages
             {
                 errors.AppendLine("Название товара не может быть пустым");
             }
-            //if (decimal.Parse(MakePriceTb.Text) <= 0)
+            //decimal price = 0;
+            //if (!decimal.TryParse(MakePriceTb.Text,out price))
+            //{
+            //    errors.AppendLine("Цена не может содержать символов");
+            //}
+            //if (price <= 0)
             //{
             //    errors.AppendLine("Цена производства не может быть меньшей или равной нулю");
             //}
-            //if (decimal.Parse(SellPriceTb.Text) <= 0)
+            //if (!decimal.TryParse(SellPriceTb.Text, out price))
+            //{
+            //    errors.AppendLine("Цена продажи не может быть меньшей или равной нулю");
+            //}
+            //if (price <= 0)
             //{
             //    errors.AppendLine("Цена продажи не может быть меньшей или равной нулю");
             //}
@@ -107,6 +111,7 @@ namespace FurnitureApplication.Pages
                 if (Product.ProductId == 0)
                 {
                     FurnitureEntities.GetContext().Products.Add(Product);
+                    FurnitureEntities.GetContext().SaveChanges();
                 }
                 else
                 {

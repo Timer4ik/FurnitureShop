@@ -12,7 +12,6 @@ namespace FurnitureApplication.Entity
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Windows;
 
     public partial class Product
     {
@@ -25,18 +24,19 @@ namespace FurnitureApplication.Entity
         public int ProductId { get; set; }
         public int ProductTypeId { get; set; }
         public string Name { get; set; }
-        public decimal MakePrice { get; set; }
-        public decimal SellPrice { get; set; }
-        public string Photo { get; set; }
+        public double MakePrice { get; set; }
+        public double SellPrice { get; set; }
+        public string Photo { get; set; } = "default.jpg";
         public int Amount { get; set; }
+
         public string GetPhoto
         {
             get
             {
-                return $@"{Directory.GetCurrentDirectory()}\Images\{Photo ?? "default.jpg"}"; 
+                return $@"{Directory.GetCurrentDirectory()}\Images\{Photo}";
             }
         }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
         public virtual ProductType ProductType { get; set; }

@@ -35,10 +35,10 @@
         <TextBox Grid.Row="2" Grid.Column="2" x:Name="ProductNameTb" Text="{Binding Name}" VerticalAlignment="Center" Margin="20 0"/>
 
         <TextBlock Grid.Row="3" Grid.Column="1" Text="Цена производства: " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
-        <TextBox Grid.Row="3" Grid.Column="2" x:Name="MakePriceTb" Text="{Binding MakePrice,StringFormat=N2}" VerticalAlignment="Center" Margin="20 0"/>
+        <TextBox Grid.Row="3" Grid.Column="2" x:Name="MakePriceTb" Text="{Binding MakePrice,StringFormat=c,ConverterCulture='ru-RU'}" VerticalAlignment="Center" Margin="20 0"/>
 
         <TextBlock Grid.Row="4" Grid.Column="1" Text="Цена продажи: " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
-        <TextBox Grid.Row="4" Grid.Column="2" x:Name="SellPriceTb" Text="{Binding SellPrice,StringFormat=N2}" VerticalAlignment="Center" Margin="20 0"/>
+        <TextBox Grid.Row="4" Grid.Column="2" x:Name="SellPriceTb" Text="{Binding SellPrice,StringFormat=c,ConverterCulture='ru-RU'}" VerticalAlignment="Center" Margin="20 0"/>
 
         <Button x:Name="LoadPhotoButton" Grid.Row="5" Grid.Column="1" Content="Загрузить фото" Click="LoadPhotoButton_Click"
                 HorizontalAlignment="Center" VerticalAlignment="Center" 

@@ -77,40 +77,40 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Entity\Client.cs">
-      <DependentUpon>FurnitureModel.tt</DependentUpon>
+      <DependentUpon>FunitureModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\FurnitureModel.Context.cs">
+    <Compile Include="Entity\FunitureModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FurnitureModel.Context.tt</DependentUpon>
+      <DependentUpon>FunitureModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\FurnitureModel.cs">
+    <Compile Include="Entity\FunitureModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FurnitureModel.tt</DependentUpon>
+      <DependentUpon>FunitureModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\FurnitureModel.Designer.cs">
+    <Compile Include="Entity\FunitureModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FurnitureModel.edmx</DependentUpon>
+      <DependentUpon>FunitureModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entity\Manager.cs">
-      <DependentUpon>FurnitureModel.tt</DependentUpon>
+      <DependentUpon>FunitureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Order.cs">
-      <DependentUpon>FurnitureModel.tt</DependentUpon>
+      <DependentUpon>FunitureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Product.cs">
-      <DependentUpon>FurnitureModel.tt</DependentUpon>
+      <DependentUpon>FunitureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\ProductType.cs">
-      <DependentUpon>FurnitureModel.tt</DependentUpon>
+      <DependentUpon>FunitureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\sysdiagram.cs">
-      <DependentUpon>FurnitureModel.tt</DependentUpon>
+      <DependentUpon>FunitureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\User.cs">
-      <DependentUpon>FurnitureModel.tt</DependentUpon>
+      <DependentUpon>FunitureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -119,6 +119,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\OrdersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ProductInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -129,6 +133,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\OrdersPage.xaml.cs">
+      <DependentUpon>OrdersPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ProductInfoPage.xaml.cs">
       <DependentUpon>ProductInfoPage.xaml</DependentUpon>
     </Compile>
@@ -152,12 +159,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Entity\FurnitureModel.edmx">
+    <EntityDeploy Include="Entity\FunitureModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FurnitureModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>FunitureModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Entity\FurnitureModel.edmx.diagram">
-      <DependentUpon>FurnitureModel.edmx</DependentUpon>
+    <None Include="Entity\FunitureModel.edmx.diagram">
+      <DependentUpon>FunitureModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -171,16 +178,17 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Content Include="Entity\FurnitureModel.Context.tt">
+    <Content Include="Entity\FunitureModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FurnitureModel.edmx</DependentUpon>
-      <LastGenOutput>FurnitureModel.Context.cs</LastGenOutput>
+      <DependentUpon>FunitureModel.edmx</DependentUpon>
+      <LastGenOutput>FunitureModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Entity\FurnitureModel.tt">
+    <Content Include="Entity\FunitureModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FurnitureModel.edmx</DependentUpon>
-      <LastGenOutput>FurnitureModel.cs</LastGenOutput>
+      <DependentUpon>FunitureModel.edmx</DependentUpon>
+      <LastGenOutput>FunitureModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

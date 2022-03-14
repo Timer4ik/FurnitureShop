@@ -24,58 +24,71 @@ namespace FurnitureApplication.Pages
         public ProductsPage()
         {
             InitializeComponent();
-            ProductListBox.ItemsSource = FurnitureEntities.GetContext().Products.ToList();
-
-            SortCmb.SelectedIndex = 0;
-
-            List<ProductType> productTypes = FurnitureEntities.GetContext().ProductTypes.ToList();
-            productTypes.Insert(0, new ProductType
+            try
             {
-                Name = "Все"
-            });
-            FilterProductTypeCmb.ItemsSource = productTypes;
-            FilterProductTypeCmb.SelectedIndex = 0;
-            FilterProductTypeCmb.DisplayMemberPath = "Name";
+                SortCmb.SelectedIndex = 0;
+
+                List<ProductType> productTypes = FurnitureEntities.GetContext().ProductTypes.ToList();
+                productTypes.Insert(0, new ProductType
+                {
+                    Name = "Все"
+                });
+                FilterProductTypeCmb.ItemsSource = productTypes;
+                FilterProductTypeCmb.SelectedIndex = 0;
+                FilterProductTypeCmb.DisplayMemberPath = "Name";
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
 
         //Обновление данных при взаимодействии с формами
         private void Update()
         {
-            List<Product> products = FurnitureEntities.GetContext().Products.ToList();
-
-
-            string searchText = SearchTb.Text.Trim().ToLower();
-            if (searchText.Length > 0)
+            try
             {
-                products = products.Where(p => p.Name.ToLower().Contains(searchText)).ToList();
-            }
+                List<Product> products = FurnitureEntities.GetContext().Products.ToList();
 
 
-            if (SortCmb.SelectedIndex > 0)
-            {
-                switch (SortCmb.SelectedIndex)
+                string searchText = SearchTb.Text.Trim().ToLower();
+                if (searchText.Length > 0)
                 {
-                    case 0:
-                        products = products.OrderBy(p => p.Name).ToList();
-                        break;
-                    case 1:
-                        products = products.OrderBy(p => p.SellPrice).ToList();
-                        break;
-                    case 2:
-                        products = products.OrderByDescending(p => p.SellPrice).ToList();
-                        break;
-                    default:
-                        break;
+                    products = products.Where(p => p.Name.ToLower().Contains(searchText)).ToList();
                 }
-            }
 
-            if (FilterProductTypeCmb.SelectedIndex>0)
+
+                if (SortCmb.SelectedIndex > 0)
+                {
+                    switch (SortCmb.SelectedIndex)
+                    {
+                        case 0:
+                            products = products.OrderBy(p => p.Name).ToList();
+                            break;
+                        case 1:
+                            products = products.OrderBy(p => p.SellPrice).ToList();
+                            break;
+                        case 2:
+                            products = products.OrderByDescending(p => p.SellPrice).ToList();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                if (FilterProductTypeCmb.SelectedIndex > 0)
+                {
+                    ProductType productType = FilterProductTypeCmb.SelectedItem as ProductType;
+                    products = products.Where(p => p.ProductTypeId == productType.ProductTypeId).ToList();
+                }
+
+                ProductListBox.ItemsSource = products;
+            }
+            catch (Exception error)
             {
-                ProductType productType = FilterProductTypeCmb.SelectedItem as ProductType;
-                products = products.Where(p => p.ProductTypeId == productType.ProductTypeId).ToList();
+                MessageBox.Show(error.Message);
             }
-
-            ProductListBox.ItemsSource = products;
+           
         }
 
 
@@ -101,8 +114,21 @@ namespace FurnitureApplication.Pages
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            FurnitureEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-            Update();
+            try
+            {
+                FurnitureEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                Update();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
+            
+        }
+
+        private void AddProductButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ProductInfoPage(null));
         }
     }
 }
