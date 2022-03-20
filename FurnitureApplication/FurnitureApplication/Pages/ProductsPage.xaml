@@ -65,7 +65,7 @@
                                 </TextBlock>
                                 <TextBlock TextWrapping="Wrap" Margin="0 0 0 5">
                                 <Run Text="Количество продаж:"/>
-                                <Run Text="{Binding Amount}" FontWeight="Bold"/>
+                                <Run Text="{Binding SellAmount}" FontWeight="Bold"/>
                                 </TextBlock>
                             </StackPanel>
                         </Grid>

@@ -26,11 +26,9 @@
       <EntityTypeMapping TypeName="FurnitureModel.Order">
         <MappingFragment StoreEntitySet="Order">
           <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
           <ScalarProperty Name="ClientId" ColumnName="ClientId" />
           <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
-          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -43,6 +41,16 @@
           <ScalarProperty Name="MakePrice" ColumnName="MakePrice" />
           <ScalarProperty Name="SellPrice" ColumnName="SellPrice" />
           <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="SellAmount" ColumnName="SellAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductOrders">
+      <EntityTypeMapping TypeName="FurnitureModel.ProductOrder">
+        <MappingFragment StoreEntitySet="ProductOrder">
+          <ScalarProperty Name="ProductOrderId" ColumnName="ProductOrderId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
         </MappingFragment>
       </EntityTypeMapping>

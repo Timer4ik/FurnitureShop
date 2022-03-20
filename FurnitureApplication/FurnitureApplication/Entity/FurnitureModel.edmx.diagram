@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="91feb621768c4861986b139c9052bcfd" Name="Diagram1">
+        <EntityTypeShape EntityType="FurnitureModel.Client" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FurnitureModel.Manager" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FurnitureModel.Order" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FurnitureModel.Product" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FurnitureModel.ProductOrder" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FurnitureModel.ProductType" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FurnitureModel.sysdiagram" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FurnitureModel.User" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="FurnitureModel.FK_Order_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="FurnitureModel.FK_Order_Manager" ManuallyRouted="false" />
+        <AssociationConnector Association="FurnitureModel.FK_ProductOrder_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="FurnitureModel.FK_Product_ProductType" ManuallyRouted="false" />
+        <AssociationConnector Association="FurnitureModel.FK_ProductOrder_Product" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

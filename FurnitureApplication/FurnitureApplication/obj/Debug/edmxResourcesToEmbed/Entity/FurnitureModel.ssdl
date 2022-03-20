@@ -24,11 +24,9 @@
       <PropertyRef Name="OrderId" />
     </Key>
     <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="OrderDate" Type="date" Nullable="false" />
     <Property Name="ClientId" Type="int" Nullable="false" />
     <Property Name="ManagerId" Type="int" Nullable="false" />
-    <Property Name="OrderDate" Type="date" Nullable="false" />
-    <Property Name="Amount" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -40,6 +38,15 @@
     <Property Name="MakePrice" Type="decimal" Precision="12" Scale="3" Nullable="false" />
     <Property Name="SellPrice" Type="decimal" Precision="12" Scale="3" Nullable="false" />
     <Property Name="Photo" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SellAmount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductOrder">
+    <Key>
+      <PropertyRef Name="ProductOrderId" />
+    </Key>
+    <Property Name="ProductOrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
     <Property Name="Amount" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ProductType">
@@ -95,20 +102,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Order_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductId" />
-      </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="ProductId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Product_ProductType">
     <End Role="ProductType" Type="Self.ProductType" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -123,11 +116,40 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ProductOrder_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductOrder" Type="Self.ProductOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="ProductOrder">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductOrder_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductOrder" Type="Self.ProductOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="ProductOrder">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="Хранилище FurnitureModelContainer">
     <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductOrder" EntityType="Self.ProductOrder" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProductType" EntityType="Self.ProductType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
@@ -139,13 +161,17 @@
       <End Role="Manager" EntitySet="Manager" />
       <End Role="Order" EntitySet="Order" />
     </AssociationSet>
-    <AssociationSet Name="FK_Order_Product" Association="Self.FK_Order_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="Order" EntitySet="Order" />
-    </AssociationSet>
     <AssociationSet Name="FK_Product_ProductType" Association="Self.FK_Product_ProductType">
       <End Role="ProductType" EntitySet="ProductType" />
       <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductOrder_Order" Association="Self.FK_ProductOrder_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="ProductOrder" EntitySet="ProductOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductOrder_Product" Association="Self.FK_ProductOrder_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductOrder" EntitySet="ProductOrder" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

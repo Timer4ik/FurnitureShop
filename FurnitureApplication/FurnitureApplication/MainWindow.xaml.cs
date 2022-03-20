@@ -34,7 +34,7 @@ namespace FurnitureApplication
 
         private void OrdersButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new ProductsPage());
+            MainFrame.Navigate(new OrdersPage());
         }
 
         private void ProductsButton_Click(object sender, RoutedEventArgs e)

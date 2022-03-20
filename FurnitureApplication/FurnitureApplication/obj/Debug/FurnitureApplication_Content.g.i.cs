@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entity/funituremodel.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entity/funituremodel.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entity/furnituremodel.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entity/furnituremodel.tt")]
 
 

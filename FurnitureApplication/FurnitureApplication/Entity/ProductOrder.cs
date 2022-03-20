@@ -12,22 +12,14 @@ namespace FurnitureApplication.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class ProductOrder
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
-        {
-            this.ProductOrders = new HashSet<ProductOrder>();
-        }
-    
+        public int ProductOrderId { get; set; }
+        public int ProductId { get; set; }
         public int OrderId { get; set; }
-        public System.DateTime OrderDate { get; set; }
-        public int ClientId { get; set; }
-        public int ManagerId { get; set; }
+        public int Amount { get; set; }
     
-        public virtual Client Client { get; set; }
-        public virtual Manager Manager { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductOrder> ProductOrders { get; set; }
+        public virtual Order Order { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

@@ -15,15 +15,13 @@ namespace FurnitureApplication.Entity
     
     public partial class FurnitureEntities : DbContext
     {
-        static private FurnitureEntities _ctx;
-        static public FurnitureEntities GetContext()
-        {
-            return _ctx ?? (_ctx = new FurnitureEntities());
-        }
         public FurnitureEntities()
             : base("name=FurnitureEntities")
         {
         }
+
+        private static FurnitureEntities _ctx;
+        public static FurnitureEntities GetContext() => _ctx ?? (_ctx = new FurnitureEntities());
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -34,6 +32,7 @@ namespace FurnitureApplication.Entity
         public virtual DbSet<Manager> Managers { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<ProductOrder> ProductOrders { get; set; }
         public virtual DbSet<ProductType> ProductTypes { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }

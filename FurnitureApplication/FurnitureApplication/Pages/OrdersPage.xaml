@@ -34,54 +34,54 @@
         <TextBlock Grid.Row="3" Grid.Column="0" Text="Общая стоимость заказа: " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
         <TextBox Grid.Row="3" Grid.Column="1" x:Name="FullPrice" Text="{Binding FullPrice}" IsEnabled="False" VerticalAlignment="Center" Margin="20 0"/>
 
-        <DataGrid Grid.Row="4" Grid.ColumnSpan="2" FontSize="10">
+        <DataGrid x:Name="OrderProductsDg" Grid.Row="4" Grid.ColumnSpan="2" FontSize="10" AutoGenerateColumns="False" >
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="№ п/п" Width="100">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Product}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Товарная группа">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding ProductId}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Товарная группа">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox x:Name="ProductTypesCmb" ItemsSource="{Binding ProductTypes}" DisplayMemberPath="Name" SelectionChanged="ProductTypesCmb_SelectionChanged"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Наименование товара">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-
+                            <ComboBox ItemsSource="{Binding Products}" DisplayMemberPath="Name"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Цена продажи">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-
+                            <TextBox Text="{Binding SellPrice}" IsReadOnly="True"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Количество">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            
+                            <TextBox Text="{Binding Amount}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Стоимость позиции">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-
+                            <TextBox Text="{Binding Price}" IsReadOnly="True"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Удалить позицию">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-
+                            <Button Content="Удалить позицию"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

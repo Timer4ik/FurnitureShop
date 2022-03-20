@@ -18,27 +18,23 @@ namespace FurnitureApplication.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.Orders = new HashSet<Order>();
+            this.ProductOrders = new HashSet<ProductOrder>();
         }
     
         public int ProductId { get; set; }
         public int ProductTypeId { get; set; }
         public string Name { get; set; }
-        public double MakePrice { get; set; }
-        public double SellPrice { get; set; }
+        public decimal MakePrice { get; set; }
+        public decimal SellPrice { get; set; }
         public string Photo { get; set; } = "default.jpg";
-        public int Amount { get; set; }
-
+        public int SellAmount { get; set; }
         public string GetPhoto
         {
-            get
-            {
-                return $@"{Directory.GetCurrentDirectory()}\Images\{Photo}";
-            }
+            get => $@"{Directory.GetCurrentDirectory()}\Images\{Photo}";
         }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
         public virtual ProductType ProductType { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductOrder> ProductOrders { get; set; }
     }
 }

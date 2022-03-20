@@ -26,14 +26,12 @@
       <PropertyRef Name="OrderId" />
     </Key>
     <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="ClientId" Type="Int32" Nullable="false" />
     <Property Name="ManagerId" Type="Int32" Nullable="false" />
-    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Amount" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Client" Relationship="Self.FK_Order_Client" FromRole="Order" ToRole="Client" />
     <NavigationProperty Name="Manager" Relationship="Self.FK_Order_Manager" FromRole="Order" ToRole="Manager" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_Order_Product" FromRole="Order" ToRole="Product" />
+    <NavigationProperty Name="ProductOrders" Relationship="Self.FK_ProductOrder_Order" FromRole="Order" ToRole="ProductOrder" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -45,9 +43,20 @@
     <Property Name="MakePrice" Type="Decimal" Precision="12" Scale="3" Nullable="false" />
     <Property Name="SellPrice" Type="Decimal" Precision="12" Scale="3" Nullable="false" />
     <Property Name="Photo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Amount" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Product" FromRole="Product" ToRole="Order" />
+    <Property Name="SellAmount" Type="Int32" Nullable="false" />
     <NavigationProperty Name="ProductType" Relationship="Self.FK_Product_ProductType" FromRole="Product" ToRole="ProductType" />
+    <NavigationProperty Name="ProductOrders" Relationship="Self.FK_ProductOrder_Product" FromRole="Product" ToRole="ProductOrder" />
+  </EntityType>
+  <EntityType Name="ProductOrder">
+    <Key>
+      <PropertyRef Name="ProductOrderId" />
+    </Key>
+    <Property Name="ProductOrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_ProductOrder_Order" FromRole="ProductOrder" ToRole="Order" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_ProductOrder_Product" FromRole="ProductOrder" ToRole="Product" />
   </EntityType>
   <EntityType Name="ProductType">
     <Key>
@@ -103,17 +112,17 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Order_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1">
+  <Association Name="FK_ProductOrder_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <End Role="ProductOrder" Type="Self.ProductOrder" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductId" />
+      <Principal Role="Order">
+        <PropertyRef Name="OrderId" />
       </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="ProductId" />
+      <Dependent Role="ProductOrder">
+        <PropertyRef Name="OrderId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -131,11 +140,26 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ProductOrder_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductOrder" Type="Self.ProductOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="ProductOrder">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="FurnitureEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Clients" EntityType="Self.Client" />
     <EntitySet Name="Managers" EntityType="Self.Manager" />
     <EntitySet Name="Orders" EntityType="Self.Order" />
     <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="ProductOrders" EntityType="Self.ProductOrder" />
     <EntitySet Name="ProductTypes" EntityType="Self.ProductType" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="Users" EntityType="Self.User" />
@@ -147,13 +171,17 @@
       <End Role="Manager" EntitySet="Managers" />
       <End Role="Order" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK_Order_Product" Association="Self.FK_Order_Product">
-      <End Role="Product" EntitySet="Products" />
+    <AssociationSet Name="FK_ProductOrder_Order" Association="Self.FK_ProductOrder_Order">
       <End Role="Order" EntitySet="Orders" />
+      <End Role="ProductOrder" EntitySet="ProductOrders" />
     </AssociationSet>
     <AssociationSet Name="FK_Product_ProductType" Association="Self.FK_Product_ProductType">
       <End Role="ProductType" EntitySet="ProductTypes" />
       <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductOrder_Product" Association="Self.FK_ProductOrder_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductOrder" EntitySet="ProductOrders" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

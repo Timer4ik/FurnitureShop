@@ -60,3 +60,35 @@ C:\Users\timer4ik\Desktop\Мои разработки\FurnitureProject\Furniture
 C:\Users\timer4ik\Desktop\Мои разработки\FurnitureProject\FurnitureApplication\FurnitureApplication\obj\Debug\FurnitureApplication.pdb
 C:\Users\timer4ik\Desktop\Мои разработки\FurnitureProject\FurnitureApplication\FurnitureApplication\obj\Debug\Pages\OrdersPage.g.cs
 C:\Users\timer4ik\Desktop\Мои разработки\FurnitureProject\FurnitureApplication\FurnitureApplication\obj\Debug\Pages\OrdersPage.baml
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\bin\Debug\FurnitureApplication.exe.config
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\bin\Debug\FurnitureApplication.exe
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\bin\Debug\FurnitureApplication.pdb
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\bin\Debug\EntityFramework.dll
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\bin\Debug\EntityFramework.xml
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\FurnitureApplication.csproj.AssemblyReference.cache
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\LoginWindow.g.cs
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\MainWindow.g.cs
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\Pages\OrdersPage.g.cs
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\Pages\ProductInfoPage.g.cs
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\Pages\ProductsPage.g.cs
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\App.g.cs
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\FurnitureApplication_Content.g.cs
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\FurnitureApplication_MarkupCompile.cache
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\FurnitureApplication_MarkupCompile.lref
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\App.baml
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\LoginWindow.baml
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\MainWindow.baml
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\Pages\OrdersPage.baml
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\Pages\ProductInfoPage.baml
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\Pages\ProductsPage.baml
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\FurnitureApplication.g.resources
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\FurnitureApplication.Properties.Resources.resources
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\FurnitureApplication.csproj.GenerateResource.cache
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\FurnitureApplication.csproj.CoreCompileInputs.cache
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\FurnitureApplication.csproj.CopyComplete
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\FurnitureApplication.exe
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\FurnitureApplication.pdb
+C:\Users\ADL\Desktop\Колледж\FurnitureShop\FurnitureApplication\FurnitureApplication\obj\Debug\FurnitureApplication.csproj.SuggestedBindingRedirects.cache
